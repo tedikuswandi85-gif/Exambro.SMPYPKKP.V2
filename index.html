@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Exambro SMP YPKKP 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <audio id="alert-sound" src="https://www.soundjay.com/buttons/beep-01a.mp3" preload="auto"></audio>
+
+    <div id="auth-screen">
+        <div class="login-box">
+            <div class="header-exam">
+                <img src="https://i.ibb.co.com/GfLt51Nk/logo.png" alt="Logo" class="logo-sekolah">
+                <h2>Portal Ujian Resmi</h2>
+                <h3>SMP YPKKP 2026</h3><hr>
+            </div>
+            <div class="tab-menu">
+                <button onclick="showTab('jadwal')" id="btn-tab-jadwal" class="active">Penilaian Sumatif</button>
+                <button onclick="showTab('manual')" id="btn-tab-manual">Ulangan Harian</button>
+            </div>
+            <input type="text" id="siswa-nama" placeholder="Nama Lengkap Siswa">
+            
+            <div id="tab-jadwal">
+                <select id="select-tingkat" onchange="filterMapel()">
+                    <option value="">-- Pilih Kelas --</option>
+                    <option value="7A">Kelas 7A</option>
+                    <option value="7B">Kelas 7B</option>
+                    <option value="7C">Kelas 7C</option>
+                    <option value="8A">Kelas 8A</option>
+                    <option value="8B">Kelas 8B</option>
+                    <option value="9A">Kelas 9A</option>
+                    <option value="9B">Kelas 9B</option>
+                </select>
+                <select id="select-mapel"><option value="">-- Pilih Mata Pelajaran --</option></select>
+                <input type="text" id="psaj-token" placeholder="TOKEN UJIAN" style="text-transform: uppercase;">
+                <button onclick="startExam('jadwal')" class="btn-start">MULAI UJIAN</button>
+            </div>
+
+            <div id="tab-manual" style="display:none;">
+                <input type="text" id="manual-url" placeholder="Tempel Link Soal">
+                <input type="number" id="manual-timer" placeholder="Set Timer (Menit)">
+                <button onclick="startExam('manual')" class="btn-start" style="background: #28a745;">MULAI ULANGAN</button>
+            </div>
+            <p onclick="openAdminPanel()" class="admin-link-text">Panel Operator</p>
+        </div>
+    </div>
+
+    <div id="admin-screen" style="display: none;">
+        <div class="admin-header">
+            <h3>Monitoring Aktivitas Peserta</h3>
+            <button onclick="location.reload()" class="btn-exit-admin">Keluar</button>
+        </div>
+        <div class="admin-stats">
+            <span>Total Aktif: <b id="stat-count">0</b></span>
+            <input type="text" id="admin-search" placeholder="Cari nama siswa..." onkeyup="searchSiswa()" style="width: 200px; margin-left: 20px; display: inline-block; padding: 5px; border-radius: 5px; border: 1px solid #ddd;">
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Nama Peserta</th><th>Mata Pelajaran (Kelas)</th><th>Status</th><th>Aksi</th></tr></thead>
+                <tbody id="admin-list"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="exam-header" style="display: none;">
+        <div class="status-bar">
+            <div class="user-info"><b id="display-nama">Nama Siswa</b><br><small id="display-mapel">Mapel</small></div>
+            <div id="timer-box">Sisa Waktu: <b id="timer-display">00:00:00</b></div>
+            <button onclick="exitApp()" class="btn-exit">SELESAI</button>
+        </div>
+        <iframe id="exam-frame" src=""></iframe>
+    </div>
+
+    <div id="warning-overlay">
+        <div class="warning-box">
+            <h2 style="color:red;">PELANGGARAN!</h2>
+            <p>Dilarang keluar dari aplikasi!</p>
+            <button onclick="returnToFullscreen()" class="btn-start">KEMBALI KE SOAL</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
