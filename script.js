@@ -42,8 +42,8 @@ const databaseUjian = [
 
     
     // Mapel lain yang linknya sama untuk satu angkatan
-    { tingkat: ["9A", "9B"], mapel: "PABP", link: "https://bit.ly/PSAJPAIBP2526", tgl: "2026-05-07", durasi: 90, token: "PABP9" },
-    { tingkat: ["9A", "9B"], mapel: "Matematika", link: "https://forms.gle/MTK9", tgl: "2026-05-04", durasi: 90, token: "MTK9" }
+    { tingkat: ["9A", "9B", "9C"], mapel: "PABP", link: "https://bit.ly/PSAJPAIBP2526", tgl: "2026-05-07", durasi: 90, token: "PABP9" },
+    { tingkat: ["9A", "9B", "9C"], mapel: "Matematika", link: "https://forms.gle/MTK9", tgl: "2026-05-04", durasi: 90, token: "MTK9" }
 ];
 
 let isExamActive = false;
