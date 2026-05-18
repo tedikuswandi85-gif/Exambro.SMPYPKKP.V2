@@ -18,7 +18,7 @@ const databaseUjian = [
     { tingkat: ["7A", "7B", "7C"], mapel: "PAI-BP", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-02", durasi: 90, token: "IPSJAYA" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/XqWryHkcxdyRSEC99", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/VYZx8Po9N7WbAaDk8 ", tgl: "2026-06-03", durasi: 90, token: "SAYASISWABERKARAKTER" },
-    { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Inggris", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-03", durasi: 120, token: "IPSJAYA" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Inggris", link: "https://bit.ly/PSAT7English", tgl: "2026-06-03", durasi: 120, token: "ENG72526" },
     { tingkat: ["7A", "7B", "7C"], mapel: "SBDP", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-04", durasi: 90, token: "IPSJAYA" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Matematika", link: "https://bit.ly/ASAT7MTK2526", tgl: "2026-06-04", durasi: 120, token: "MTK2026" },
     { tingkat: ["7A", "7B", "7C"], mapel: "IPA", link: "https://forms.gle/3ZiAZa9jC3EXYKEj6", tgl: "2026-06-05", durasi: 120, token: "BISMILLAHIPALULUS" },
