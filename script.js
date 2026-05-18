@@ -23,7 +23,7 @@ const databaseUjian = [
     { tingkat: ["7A", "7B", "7C"], mapel: "Matematika", link: "https://bit.ly/ASAT7MTK2526", tgl: "2026-06-04", durasi: 120, token: "MTK2026" },
     { tingkat: ["7A", "7B", "7C"], mapel: "IPA", link: "https://forms.gle/3ZiAZa9jC3EXYKEj6", tgl: "2026-06-05", durasi: 120, token: "BISMILLAHIPALULUS" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Informatika", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-08", durasi: 90, token: "IPSJAYA" },
-    { tingkat: ["7A", "7B", "7C"], mapel: "IPS", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-08", durasi: 90, token: "IPSJAYA" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "IPS", link: "https://forms.gle/9BUjkMmXfHNwFMuS9", tgl: "2026-06-08", durasi: 90, token: "LITERASIKEUANGAN" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Sunda", link: "https://forms.gle/NKfxpkok1yYKQd1NA", tgl: "2026-06-09", durasi: 90, token: "SUNDAGAMPANG26" },
     { tingkat: ["7A", "7B", "7C"], mapel: "PJOK", link: "https://forms.gle/gxZg21mxoanjVNGHA", tgl: "2026-06-09", durasi: 90, token: "HIDUPSEHAT" },
 
@@ -38,7 +38,7 @@ const databaseUjian = [
     { tingkat: ["8B", "8C"], mapel: "IPA", link: "https://forms.gle/uTBkYMzcexhttwHH9", tgl: "2026-06-05", durasi: 120, token: "PSATIPA8BC26" },
     { tingkat: ["8A"], mapel: "IPA", link: "https://forms.gle/uTBkYMzcexhttwHH9", tgl: "2026-06-05", durasi: 120, token: "PSATIPA8BC26" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Informatika", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-08", durasi: 90, token: "IPSJAYA" },
-    { tingkat: ["8A", "8B", "8C"], mapel: "IPS", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-08", durasi: 90, token: "IPSJAYA" },
+    { tingkat: ["8A", "8B", "8C"], mapel: "IPS", link: "https://forms.gle/3aTxJspuZFTXDM34A", tgl: "2026-06-08", durasi: 90, token: "PEREKONOMIANINDONESIA" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Bahasa Sunda", link: "https://forms.gle/qSU8YhPewaEpm8LQ7", tgl: "2026-06-09", durasi: 90, token: "BISABASASUNDA26" },
     { tingkat: ["8A", "8B", "8C"], mapel: "PJOK", link: "https://forms.gle/yyAFwFufCjuVEipq7", tgl: "2026-06-09", durasi: 90, token: "BUTUHSEHAT" },
 
