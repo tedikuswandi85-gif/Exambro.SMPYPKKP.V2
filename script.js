@@ -28,7 +28,7 @@ const databaseUjian = [
     { tingkat: ["7A", "7B", "7C"], mapel: "PJOK", link: "https://forms.gle/gxZg21mxoanjVNGHA", tgl: "2026-06-09", durasi: 90, token: "HIDUPSEHAT" },
 
     // Contoh IPS: Kelas 88 & 8B Link sama (Guru A), Kelas 8C Link beda (Guru B)
-    { tingkat: ["8A", "8B", "8C"], mapel: "PAI-BP", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-02", durasi: 90, token: "IPSJAYA" },
+    { tingkat: ["8A", "8B", "8C"], mapel: "PAI-BP", link: "https://forms.gle/mTqueURApFrS3YSBA", tgl: "2026-06-02", durasi: 90, token: "SAYAANAKJUJUR" },
     { tingkat: ["8A", "8B"], mapel: "Bahasa Indonesia", link: "https://forms.gle/YaPELxt9tMnsJM7v7", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
     { tingkat: ["8C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/YaPELxt9tMnsJM7v7", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-03", durasi: 90, token: "IPSJAYA" },
