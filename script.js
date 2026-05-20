@@ -15,12 +15,12 @@ const db = firebase.database();
 // === 2. DATABASE UJIAN (KONFIGURASI MULTI-GURU) ===
 const databaseUjian = [
    // Contoh IPS: Kelas 7A & 7B Link sama (Guru A), Kelas 7C Link beda (Guru B)
-    { tingkat: ["7A", "7B", "7C"], mapel: "PAI-BP", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-02", durasi: 90, token: "IPSJAYA" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "PAI-BP", link: "https://bit.ly/4uivjrP", tgl: "2026-06-02", durasi: 90, token: "SAYAJUJUR" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/XqWryHkcxdyRSEC99", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/VYZx8Po9N7WbAaDk8 ", tgl: "2026-06-03", durasi: 90, token: "SAYASISWABERKARAKTER" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Inggris", link: "https://bit.ly/PSAT7English", tgl: "2026-06-03", durasi: 120, token: "ENG72526" },
     { tingkat: ["7A", "7B", "7C"], mapel: "SBDP", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-04", durasi: 90, token: "IPSJAYA" },
-    { tingkat: ["7A", "7B", "7C"], mapel: "Matematika", link: "https://bit.ly/ASAT7MTK2526", tgl: "2026-06-04", durasi: 120, token: "MTK2026" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "Matematika", link: "https://forms.gle/FubLCoW98DS1mZCNA", tgl: "2026-06-04", durasi: 120, token: "MATEMATIKAMUDAH!" },
     { tingkat: ["7A", "7B", "7C"], mapel: "IPA", link: "https://forms.gle/3ZiAZa9jC3EXYKEj6", tgl: "2026-06-05", durasi: 120, token: "BISMILLAHIPALULUS" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Informatika", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-08", durasi: 90, token: "IPSJAYA" },
     { tingkat: ["7A", "7B", "7C"], mapel: "IPS", link: "https://forms.gle/9BUjkMmXfHNwFMuS9", tgl: "2026-06-08", durasi: 90, token: "LITERASIKEUANGAN" },
@@ -34,7 +34,8 @@ const databaseUjian = [
     { tingkat: ["8A", "8B", "8C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-03", durasi: 90, token: "IPSJAYA" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Bahasa Inggris", link: "https://forms.gle/JTHZsYMbuz2Kk9Ne9", tgl: "2026-06-03", durasi: 120, token: "SAVEOURWORLD!" },
     { tingkat: ["8A", "8B", "8C"], mapel: "SBDP", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-04", durasi: 90, token: "IPSJAYA" },
-    { tingkat: ["8A", "8B", "8C"], mapel: "Matematika", link: "https://docs.google.com/forms/d/e/1FAIpQLSfcgWckXWfByn1YXDQ26daB4H1fUuk2Yd8HIfS7uOF63ADSyg/viewform?usp=publish-editor", tgl: "2026-06-04", durasi: 120, token: "PSAT2026" },
+    { tingkat: ["8B", "8C"], mapel: "Matematika", link: "https://docs.google.com/forms/d/e/1FAIpQLSfcgWckXWfByn1YXDQ26daB4H1fUuk2Yd8HIfS7uOF63ADSyg/viewform?usp=publish-editor", tgl: "2026-06-04", durasi: 120, token: "PSAT2026" },
+    { tingkat: ["8A"], mapel: "Matematika", link: "https://forms.gle/EKnBG1eyY4hcz8D37", tgl: "2026-06-04", durasi: 120, token: "MATEMATIKAASYIK!" },
     { tingkat: ["8B", "8C"], mapel: "IPA", link: "https://forms.gle/uTBkYMzcexhttwHH9", tgl: "2026-06-05", durasi: 120, token: "PSATIPA8BC26" },
     { tingkat: ["8A"], mapel: "IPA", link: "https://forms.gle/FtDi4K2EmWAk2Pg49", tgl: "2026-06-05", durasi: 120, token: "BISMILLAHIPALULUS" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Informatika", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-08", durasi: 90, token: "IPSJAYA" },
