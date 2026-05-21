@@ -38,7 +38,7 @@ const databaseUjian = [
     { tingkat: ["8A"], mapel: "Matematika", link: "https://forms.gle/EKnBG1eyY4hcz8D37", tgl: "2026-06-04", durasi: 120, token: "MATEMATIKAASYIK!" },
     { tingkat: ["8B", "8C"], mapel: "IPA", link: "https://forms.gle/uTBkYMzcexhttwHH9", tgl: "2026-06-05", durasi: 120, token: "PSATIPA8BC26" },
     { tingkat: ["8A"], mapel: "IPA", link: "https://forms.gle/FtDi4K2EmWAk2Pg49", tgl: "2026-06-05", durasi: 120, token: "BISMILLAHIPALULUS" },
-    { tingkat: ["8A", "8B", "8C"], mapel: "Informatika", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-08", durasi: 90, token: "IPSJAYA" },
+    { tingkat: ["8A", "8B", "8C"], mapel: "Informatika", link: "https://forms.gle/rV12cSqWj7p4fDjC8", tgl: "2026-06-08", durasi: 90, token: "PSAT-8" },
     { tingkat: ["8A", "8B", "8C"], mapel: "IPS", link: "https://forms.gle/3aTxJspuZFTXDM34A", tgl: "2026-06-08", durasi: 90, token: "PEREKONOMIANINDONESIA" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Bahasa Sunda", link: "https://forms.gle/qSU8YhPewaEpm8LQ7", tgl: "2026-06-09", durasi: 90, token: "BISABASASUNDA26" },
     { tingkat: ["8A", "8B", "8C"], mapel: "PJOK", link: "https://forms.gle/yyAFwFufCjuVEipq7", tgl: "2026-06-09", durasi: 90, token: "BUTUHSEHAT" },
