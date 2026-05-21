@@ -31,7 +31,7 @@ const databaseUjian = [
     { tingkat: ["8A", "8B", "8C"], mapel: "PAI-BP", link: "https://forms.gle/mTqueURApFrS3YSBA", tgl: "2026-06-02", durasi: 90, token: "SAYAANAKJUJUR" },
     { tingkat: ["8A", "8B"], mapel: "Bahasa Indonesia", link: "https://forms.gle/YaPELxt9tMnsJM7v7", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
     { tingkat: ["8C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/YaPELxt9tMnsJM7v7", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
-    { tingkat: ["8A", "8B", "8C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/LinkIPS_GuruA", tgl: "2026-06-03", durasi: 90, token: "IPSJAYA" },
+    { tingkat: ["8A", "8B", "8C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/6uro2TGaogn5BF3P8 ", tgl: "2026-06-03", durasi: 90, token: "SAYASISWABERKARAKTER " },
     { tingkat: ["8A", "8B", "8C"], mapel: "Bahasa Inggris", link: "https://forms.gle/JTHZsYMbuz2Kk9Ne9", tgl: "2026-06-03", durasi: 120, token: "SAVEOURWORLD!" },
     { tingkat: ["8A", "8B", "8C"], mapel: "SBDP", link: "https://bit.ly/Senbud8_PSAT26", tgl: "2026-06-04", durasi: 90, token: "PASTINAIKKELAS" },
     { tingkat: ["8B", "8C"], mapel: "Matematika", link: "https://docs.google.com/forms/d/e/1FAIpQLSfcgWckXWfByn1YXDQ26daB4H1fUuk2Yd8HIfS7uOF63ADSyg/viewform?usp=publish-editor", tgl: "2026-06-04", durasi: 120, token: "PSAT2026" },
