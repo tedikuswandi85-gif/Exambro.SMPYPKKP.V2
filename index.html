@@ -25,19 +25,21 @@
             <input type="text" id="siswa-nama" placeholder="Nama Lengkap Siswa">
             
             <div id="tab-jadwal">
-                <select id="select-tingkat" onchange="filterMapel()">
-                    <option value="">-- Pilih Kelas --</option>
-                    <option value="7A">Kelas 7A</option>
-                    <option value="7B">Kelas 7B</option>
-                    <option value="7C">Kelas 7C</option>
-                    <option value="8A">Kelas 8A</option>
-                    <option value="8B">Kelas 8B</option>
-                    <option value="8C">Kelas 8C</option>
-                    <option value="9A">Kelas 9A</option>
-                    <option value="9B">Kelas 9B</option>
-                    <option value="9C">Kelas 9C</option>
-                </select>
-                <select id="select-mapel"><option value="">-- Pilih Mata Pelajaran --</option></select>
+                <div class="row-inputs">
+                    <select id="select-tingkat" onchange="filterMapel()">
+                        <option value="">-- Pilih Kelas --</option>
+                        <option value="7A">Kelas 7A</option>
+                        <option value="7B">Kelas 7B</option>
+                        <option value="7C">Kelas 7C</option>
+                        <option value="8A">Kelas 8A</option>
+                        <option value="8B">Kelas 8B</option>
+                        <option value="8C">Kelas 8C</option>
+                        <option value="9A">Kelas 9A</option>
+                        <option value="9B">Kelas 9B</option>
+                        <option value="9C">Kelas 9C</option>
+                    </select>
+                    <select id="select-mapel"><option value="">-- Pilih Mata Pelajaran --</option></select>
+                </div>
                 <input type="text" id="psaj-token" placeholder="TOKEN UJIAN" style="text-transform: uppercase;">
                 <button onclick="startExam('jadwal')" class="btn-start">MULAI UJIAN</button>
             </div>
@@ -45,7 +47,7 @@
             <div id="tab-manual" style="display:none;">
                 <input type="text" id="manual-url" placeholder="Tempel Link Soal">
                 <input type="number" id="manual-timer" placeholder="Set Timer (Menit)">
-                <button onclick="startExam('manual')" class="btn-start" style="background: #28a745;">MULAI ULANGAN</button>
+                <button onclick="startExam('manual')" class="btn-start" style="background: var(--success-grad); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">MULAI ULANGAN</button>
             </div>
             <p onclick="openAdminPanel()" class="admin-link-text">Panel Operator</p>
         </div>
@@ -58,7 +60,7 @@
         </div>
         <div class="admin-stats">
             <span>Total Aktif: <b id="stat-count">0</b></span>
-            <input type="text" id="admin-search" placeholder="Cari nama siswa..." onkeyup="searchSiswa()" style="width: 200px; margin-left: 20px; display: inline-block; padding: 5px; border-radius: 5px; border: 1px solid #ddd;">
+            <input type="text" id="admin-search" placeholder="Cari nama siswa..." onkeyup="searchSiswa()" style="width: 200px; margin-left: 20px; display: inline-block; padding: 10px; border-radius: 20px; border: 1px solid #ddd; font-family: inherit;">
         </div>
         <div class="table-wrapper">
             <table>
@@ -79,8 +81,8 @@
 
     <div id="warning-overlay">
         <div class="warning-box">
-            <h2 style="color:red;">PELANGGARAN!</h2>
-            <p>Dilarang keluar dari aplikasi!</p>
+            <h2 style="color:red; margin-top:0;">PELANGGARAN!</h2>
+            <p style="color:var(--text-muted);">Dilarang keluar dari aplikasi!</p>
             <button onclick="returnToFullscreen()" class="btn-start">KEMBALI KE SOAL</button>
         </div>
     </div>
