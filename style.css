@@ -129,7 +129,7 @@ body {
 }
 .row-inputs select {
     flex: 1;
-    min-width: 0; /* Mencegah kolom meluap */
+    min-width: 0;
 }
 
 /* === 5. GAYA INPUT DAN SELECT KAPSUL === */
@@ -138,7 +138,7 @@ input, select {
     padding: 14px 18px; 
     margin: 8px 0; 
     border: 1px solid var(--border-color); 
-    border-radius: 30px; /* Diubah melengkung penuh kapsul sesuai gambar */
+    border-radius: 30px; 
     box-sizing: border-box; 
     font-family: inherit;
     font-size: 14px;
@@ -159,7 +159,7 @@ input:focus, select:focus {
     background: var(--primary-grad); 
     color: white; 
     border: none; 
-    border-radius: 30px; /* Bentuk kapsul */
+    border-radius: 30px; 
     font-weight: 600; 
     font-size: 15px;
     letter-spacing: 0.5px;
@@ -172,9 +172,6 @@ input:focus, select:focus {
 .btn-start:hover {
     transform: translateY(-1px);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-}
-.btn-start:active {
-    transform: translateY(1px);
 }
 
 .admin-link-text {
@@ -261,6 +258,6 @@ td { padding: 14px 20px; text-align: left; font-size: 14px; border-bottom: 1px s
     backdrop-filter: blur(8px);
 }
 .warning-box { 
-    background: white; padding: 35px; border-radius: 24px; width: 85%; max-width: 400px; text-align: center;
+    background: white; padding: 35px; border-radius: 24px; width: 85%; max-width: 420px; text-align: center;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
