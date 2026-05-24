@@ -71,7 +71,9 @@ function startMonitoring() {
         snapshot.forEach((child) => {
             const data = child.val();
             total++;
-            const badgeColor = data.status === 'mengerjakan' ? 'badge-green' : 'badge-gray';
+            let badgeColor = 'badge-gray';
+            if (data.status === 'mengerjakan') badgeColor = 'badge-green';
+            if (data.status.includes('PELANGGARAN')) badgeColor = 'btn-del'; // Merah jika melanggar
             
             const row = `<tr>
                 <td>${data.nama}</td>
@@ -191,19 +193,38 @@ function exitApp() {
     }
 }
 
-// Keamanan Aplikasi
-document.addEventListener("visibilitychange", () => {
-    if (document.hidden && isExamActive) {
-        document.getElementById('alert-sound').play();
-        document.getElementById('warning-overlay').style.display = 'flex';
-        db.ref('monitoring/' + currentSiswaKey).update({ status: "pelanggaran tab" });
+// === 5. DETEKSI PROTEKSI PELANGGARAN KETAT (ANTI-HOME/BAR/SCREENSHOT) ===
+
+// Deteksi jika siswa menekan tombol Home, menggeser Menu Bar, atau memicu Screenshot (Kehilangan Fokus Aplikasi)
+window.addEventListener('blur', () => {
+    if (isExamActive) {
+        eksekusiPelanggaran("KELUAR APLIKASI / HOME / SCREENSHOT");
     }
 });
+
+// Deteksi jika siswa meminimalkan tab atau berpindah aplikasi
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden && isExamActive) {
+        eksekusiPelanggaran("PINDAH TAB / MINIMIZE");
+    }
+});
+
+function eksekusiPelanggaran(jenis) {
+    document.getElementById('alert-sound').play();
+    document.getElementById('warning-overlay').style.display = 'flex';
+    if (currentSiswaKey) {
+        db.ref('monitoring/' + currentSiswaKey).update({ 
+            status: `PELANGGARAN: ${jenis}` 
+        });
+    }
+}
 
 function returnToFullscreen() {
     document.documentElement.requestFullscreen().catch(() => {});
     document.getElementById('warning-overlay').style.display = 'none';
-    if (currentSiswaKey) { db.ref('monitoring/' + currentSiswaKey).update({ status: "mengerjakan" }); }
+    if (currentSiswaKey) { 
+        db.ref('monitoring/' + currentSiswaKey).update({ status: "mengerjakan" }); 
+    }
 }
 
 window.onbeforeunload = function() { if (isExamActive) return "Yakin ingin keluar?"; };
