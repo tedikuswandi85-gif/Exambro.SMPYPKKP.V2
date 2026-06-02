@@ -19,15 +19,20 @@
                 <h3>SMP YPKKP ©2025/2026</h3><hr>
             </div>
             <div class="tab-menu">
-                <button onclick="showTab('jadwal')" id="btn-tab-jadwal" class="active">Penilaian Sumatif</button>
-                <button onclick="showTab('manual')" id="btn-tab-manual">Ulangan Harian</button>
+                <button onclick="showTab('jadwal')" id="btn-tab-jadwal" class="active">Sesuai Jadwal</button>
+                <button onclick="showTab('manual')" id="btn-tab-manual">Input Manual (Guru)</button>
             </div>
-            <input type="text" id="siswa-nama" placeholder="Nama Lengkap Siswa">
-            
+
+            <div class="input-group">
+                <label>Nama Lengkap Siswa</label>
+                <input type="text" id="siswa-nama" placeholder="Masukkan nama sesuai absen...">
+            </div>
+
             <div id="tab-jadwal">
-                <div class="row-inputs">
+                <div class="input-group">
+                    <label>Pilih Kelas</label>
                     <select id="select-tingkat" onchange="filterMapel()">
-                        <option value="">-- Pilih Kelas --</option>
+                        <option value="">-- Pilih Kelas Anda --</option>
                         <option value="7A">Kelas 7A</option>
                         <option value="7B">Kelas 7B</option>
                         <option value="7C">Kelas 7C</option>
@@ -38,33 +43,57 @@
                         <option value="9B">Kelas 9B</option>
                         <option value="9C">Kelas 9C</option>
                     </select>
-                    <select id="select-mapel"><option value="">-- Pilih Mata Pelajaran --</option></select>
                 </div>
-                <input type="text" id="psaj-token" placeholder="TOKEN UJIAN" style="text-transform: uppercase;">
-                <button onclick="startExam('jadwal')" class="btn-start">MULAI UJIAN</button>
+                <div class="input-group">
+                    <label>Mata Pelajaran</label>
+                    <select id="select-mapel">
+                        <option value="">-- Pilih Mata Pelajaran --</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Token Ujian</label>
+                    <input type="text" id="psaj-token" placeholder="Masukkan token dari pengawas...">
+                </div>
+                <button onclick="startExam('jadwal')" class="btn-start">MULAI UJIAN SEKARANG</button>
             </div>
 
-            <div id="tab-manual" style="display:none;">
-                <input type="text" id="manual-url" placeholder="Tempel Link Soal">
-                <input type="number" id="manual-timer" placeholder="Set Timer (Menit)">
-                <button onclick="startExam('manual')" class="btn-start" style="background: var(--success-grad); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">MULAI ULANGAN</button>
+            <div id="tab-manual" style="display: none;">
+                <div class="input-group">
+                    <label>Link Google Form / Quiz</label>
+                    <input type="text" id="manual-url" placeholder="https://forms.gle/...">
+                </div>
+                <div class="input-group">
+                    <label>Durasi Ujian (Menit)</label>
+                    <input type="number" id="manual-timer" placeholder="Contoh: 90" value="90">
+                </div>
+                <button onclick="startExam('manual')" class="btn-start" style="background:var(--success-grad)">MASUK KELAS UJIAN</button>
             </div>
-            <p onclick="openAdminPanel()" class="admin-link-text">Panel Operator</p>
+
+            <button onclick="openAdminPanel()" class="btn-admin-trigger">Menu Pengawas / Proktor</button>
         </div>
     </div>
 
-    <div id="admin-screen" style="display: none;">
-        <div class="admin-header">
-            <h3>Monitoring Aktivitas Peserta</h3>
-            <button onclick="location.reload()" class="btn-exit-admin">Keluar</button>
+    <div id="admin-screen" style="display: none; padding: 30px; height: 100vh; box-sizing: border-box; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 style="margin: 0; color: var(--text-main);">Dashboard Live Monitoring</h2>
+            <button onclick="location.reload()" class="btn-exit" style="position: static; padding: 10px 20px;">Kembali ke Login</button>
         </div>
         <div class="admin-stats">
-            <span>Total Aktif: <b id="stat-count">0</b></span>
-            <input type="text" id="admin-search" placeholder="Cari nama siswa..." onkeyup="searchSiswa()" style="width: 200px; margin-left: 20px; display: inline-block; padding: 10px; border-radius: 20px; border: 1px solid #ddd; font-family: inherit;">
+            <div>Total Mengikuti Ujian: <b id="stat-total">0</b></div>
+            <div>Aktif Mengerjakan: <b id="stat-aktif" style="color:#16a34a">0</b></div>
+            <div>Terdeteksi Melanggar: <b id="stat-langgar" style="color:#dc2626">0</b></div>
+            <input type="text" id="admin-search" placeholder="Cari nama peserta..." onkeyup="searchSiswa()" style="width: 200px; margin-left: 20px; display: inline-block; padding: 10px; border-radius: 20px; border: 1px solid #ddd; font-family: inherit;">
         </div>
         <div class="table-wrapper">
             <table>
-                <thead><tr><th>Nama Peserta</th><th>Mata Pelajaran (Kelas)</th><th>Status</th><th>Aksi</th></tr></thead>
+                <thead>
+                    <tr>
+                        <th>Nama Peserta</th>
+                        <th>Mata Pelajaran (Kelas)</th>
+                        <th>Status Aktivitas</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
                 <tbody id="admin-list"></tbody>
             </table>
         </div>
@@ -72,20 +101,24 @@
 
     <div id="exam-header" style="display: none;">
         <div class="status-bar">
-            <div class="user-info"><b id="display-nama">Nama Siswa</b><br><small id="display-mapel">Mapel</small></div>
+            <div class="user-info">
+                <b id="display-nama">Nama Siswa</b><br>
+                <small id="display-mapel">Mata Pelajaran</small>
+            </div>
             <div id="timer-box">Sisa Waktu: <b id="timer-display">00:00:00</b></div>
             <button onclick="exitApp()" class="btn-exit">SELESAI</button>
         </div>
         <iframe id="exam-frame" src=""></iframe>
     </div>
 
-    <div id="warning-overlay">
+    <div id="warning-overlay" style="display: none;">
         <div class="warning-box">
             <h2 style="color:red; margin-top:0;">PELANGGARAN DETEKSI!</h2>
-            <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">
-                Sistem mendeteksi Anda keluar dari aplikasi (Menekan Home / Membuka Menu / Screenshot). Aktivitas ini telah dilaporkan ke Pengawas!
+            <p id="violation-msg" style="background:#fef2f2; color:#991b1b; padding:10px; border-radius:8px; border:1px solid #fca5a5; font-weight:600; font-size:14px; margin-bottom:15px;"></p>
+            <p style="color:var(--text-muted); font-size:13px; margin-bottom:20px;">
+                Sistem mendeteksi Anda keluar dari halaman penuh ujian atau kehilangan fokus aplikasi. Aktivitas ini otomatis dilaporkan ke proktor!
             </p>
-            <button onclick="returnToFullscreen()" class="btn-start">KEMBALI KE SOAL</button>
+            <button onclick="returnToFullscreen()" class="btn-start">KEMBALI KE SOAL UJIAN</button>
         </div>
     </div>
 
