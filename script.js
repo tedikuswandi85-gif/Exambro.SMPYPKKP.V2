@@ -58,7 +58,8 @@ const databaseUjian = [
 ];
 
 let isExamActive = false;
-let systemReady = false; // Flag pelindung anti false-alarm saat inisialisasi fullscreen
+let systemReady = false; 
+let isWarningShowing = false; // Flag status overlay sedang aktif/tidak
 let timerInterval;
 let currentSiswaKey = '';
 
@@ -101,7 +102,7 @@ async function startExam(type) {
         if (!tkt || idx === "") return alert("Pilih Mata Pelajaran!");
         const data = databaseUjian[idx];
 
-        // Validasi Tanggal (Bisa dimatikan untuk uji coba dengan menghapus 2 baris di bawah)
+        // Validasi Tanggal
         const today = new Date().toISOString().split('T')[0];
         if (today !== data.tgl) return alert(`Ujian hanya aktif pada tanggal resmi: ${data.tgl}`);
         
@@ -128,9 +129,9 @@ async function startExam(type) {
         waktu: new Date().toLocaleTimeString()
     });
 
-    // Nyalakan status ujian & matikan pelindung sementara agar tidak false-alarm
     isExamActive = true;
     systemReady = false; 
+    isWarningShowing = false;
 
     document.getElementById('auth-screen').style.display = 'none';
     document.getElementById('exam-header').style.display = 'block';
@@ -138,15 +139,15 @@ async function startExam(type) {
     document.getElementById('display-mapel').innerText = `${mapel} - [${kelasInfo}]`;
     document.getElementById('exam-frame').src = link;
     
-    // Paksa browser masuk ke mode Fullscreen
+    // Request Fullscreen
     if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen().catch(() => {});
     }
 
-    // BERI JEDA AMAN (1.5 Detik) sebelum sensor keamanan diaktifkan penuh
+    // BERI JEDA INTEGRITAS (2 Detik): Mengatasi lag inisiasi browser & penyesuaian fokus iframe
     setTimeout(() => {
         systemReady = true;
-    }, 1500);
+    }, 2000);
 
     if (durasi > 0) startTimer(durasi);
     else document.getElementById('timer-display').innerText = "Tanpa Batas";
@@ -195,8 +196,10 @@ function autoSubmitAction() {
 // --- LOGIKA SISTEM PROTEKSI & DETEKSI PELANGGARAN ---
 
 function eksekusiPelanggaran(jenis) {
-    if (!isExamActive || !systemReady) return; // Proteksi pemblokiran false-alarm awal
+    // BLOKIR FALSE ALARM: jika ujian belum aktif, sistem belum siap, atau kotak peringatan sudah terbuka, abaikan!
+    if (!isExamActive || !systemReady || isWarningShowing) return;
 
+    isWarningShowing = true;
     const sound = document.getElementById('alert-sound');
     if(sound) sound.play().catch(()=>{});
     
@@ -211,23 +214,33 @@ function eksekusiPelanggaran(jenis) {
 }
 
 function returnToFullscreen() {
-    systemReady = false; // Amankan flag sementara selama transisi kembali fullscreen
+    systemReady = false; 
     if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen().then(() => {
-            setTimeout(() => { systemReady = true; }, 1200);
-        }).catch(() => {});
+            setTimeout(() => { 
+                systemReady = true; 
+                isWarningShowing = false;
+            }, 1500);
+        }).catch(() => {
+            isWarningShowing = false;
+        });
     }
     document.getElementById('warning-overlay').style.display = 'none';
 }
 
-// 1. Deteksi Tombol Home / Swipe / Kehilangan Fokus Aplikasi (Blur)
-window.addEventListener('blur', () => {
+// SOLUSI: Deteksi Blur khusus jika fokus berpindah keluar dari objek window, bukan berpindah ke elemen iframe internal.
+window.addEventListener('blur', (e) => {
     if (isExamActive && systemReady) {
-        eksekusiPelanggaran("KELUAR APLIKASI / HOME / SCREENSHOT");
+        // Cek apakah elemen aktif yang mencuri fokus saat ini adalah iframe soal
+        if (document.activeElement && document.activeElement.tagName === "IFRAME") {
+            // Pengguna sedang mengklik/memulai soal di dalam iframe Google Form. Abaikan peringatan!
+            return;
+        }
+        eksekusiPelanggaran("KELUAR APLIKASI / SPLIT SCREEN / HOME");
     }
 });
 
-// 2. Deteksi Perpindahan Tab Browser (Visibility Change)
+// 2. Deteksi Perpindahan Tab Jendela Browser
 document.addEventListener("visibilitychange", () => {
     if (document.hidden && isExamActive && systemReady) {
         eksekusiPelanggaran("PINDAH TAB / MINIMIZE");
@@ -237,17 +250,17 @@ document.addEventListener("visibilitychange", () => {
 // 3. Deteksi Keluar Dari Mode Layar Penuh (Fullscreen)
 document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement && isExamActive && systemReady) {
-        eksekusiPelanggaran("KELUAR MODE FULLSCREEN");
+        eksekusiPelanggaran("KELUAR MODE LAYAR PENUH");
     }
 });
 
-// 4. Kunci Berlapis (Klik Kanan, Salin, Tempel, Blok Teks)
+// 4. Kunci Tindakan Copy-Paste-Select Tingkat Dokumen Utama
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('copy', e => { if(isExamActive) e.preventDefault(); });
 document.addEventListener('paste', e => { if(isExamActive) e.preventDefault(); });
 document.addEventListener('selectstart', e => { if(isExamActive) e.preventDefault(); });
 
-// 5. Kunci Shortcuts Keyboard (F12, Inspect Element, Hotkeys Utama)
+// 5. Kunci Shortcuts Keyboard Penting (F12, Inspect, dll)
 document.addEventListener('keydown', e => {
     if (!isExamActive) return;
 
@@ -257,7 +270,7 @@ document.addEventListener('keydown', e => {
         (e.ctrlKey && e.key === 'u')
     ) {
         e.preventDefault();
-        eksekusiPelanggaran("MENCOBA AKSES INSPECT ELEMEN (DEVTOOLS)");
+        eksekusiPelanggaran("MENCOBA AKSES DEVTOOLS (INSPECT)");
     }
     
     if (e.ctrlKey && ['c', 'v', 's', 'p', 'a'].includes(e.key.toLowerCase())) {
@@ -267,10 +280,10 @@ document.addEventListener('keydown', e => {
 
 // 6. Pembersihan Clipboard Otomatis Berkala
 setInterval(() => {
-    if (isExamActive && navigator.clipboard && systemReady) {
+    if (isExamActive && navigator.clipboard && systemReady && !isWarningShowing) {
         navigator.clipboard.writeText("Akses Dilarang!").catch(() => {});
     }
-}, 3000);
+}, 3500);
 
 function exitApp() {
     if (confirm("Pastikan Anda sudah menekan tombol KIRIM di Google Form sebelum mengakhiri sesi. Keluar?")) {
@@ -283,7 +296,7 @@ function exitApp() {
     }
 }
 
-// --- MODUL HANYA UNTUK DASHBOARD PANEL OPERATOR/PROKTOR ---
+// --- MODUL DASHBOARD PANEL OPERATOR/PROKTOR ---
 function openAdminPanel() {
     const pw = prompt("Masukkan Kata Sandi Proktor:");
     if (pw === "ypkkp2026") {
