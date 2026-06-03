@@ -15,8 +15,8 @@ const db = firebase.database();
 // === 2. DATABASE JADWAL UJIAN PSAJ 2026 ===
 const databaseUjian = [
     // KELAS 7
-    { tingkat: ["7A", "7B", "7C"], mapel: "PAI-BP", link: "https://bit.ly/4uivjrP", tgl: "2026-06-02", durasi: 90, token: "SAYAJUJUR" },
-    { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/XqWryHkcxdyRSEC99", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "PAI-BP", link: "https://bit.ly/4uivjrP", tgl: "2026-06-03", durasi: 90, token: "SAYAJUJUR" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/XqWryHkcxdyRSEC99", tgl: "2026-06-03", durasi: 120, token: "AYEKAPTEN!" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/VYZx8Po9N7WbAaDk8", tgl: "2026-06-03", durasi: 90, token: "SAYASISWABERKARAKTER" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Inggris", link: "https://bit.ly/PSAT7English", tgl: "2026-06-03", durasi: 120, token: "ENG72526" },
     { tingkat: ["7A", "7B", "7C"], mapel: "SBDP", link: "https://bit.ly/PSAT_Senbud726", tgl: "2026-06-04", durasi: 90, token: "YAKINBISASENDIRI" },
@@ -28,9 +28,9 @@ const databaseUjian = [
     { tingkat: ["7A", "7B", "7C"], mapel: "PJOK", link: "https://forms.gle/gxZg21mxoanjVNGHA", tgl: "2026-06-09", durasi: 90, token: "HIDUPSEHAT" },
 
     // KELAS 8
-    { tingkat: ["8A", "8B", "8C"], mapel: "PAI-BP", link: "https://forms.gle/mTqueURApFrS3YSBA", tgl: "2026-06-02", durasi: 90, token: "SAYAANAKJUJUR" },
-    { tingkat: ["8A", "8B"], mapel: "Bahasa Indonesia", link: "https://forms.gle/YaPELxt9tMnsJM7v7", tgl: "2026-06-02", durasi: 120, token: "AYEKAPTEN!" },
-    { tingkat: ["8C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/DYZBhzh6aLmgohYdA", tgl: "2026-06-02", durasi: 120, token: "SEMANGAT8C" },
+    { tingkat: ["8A", "8B", "8C"], mapel: "PAI-BP", link: "https://forms.gle/mTqueURApFrS3YSBA", tgl: "2026-06-03", durasi: 90, token: "SAYAANAKJUJUR" },
+    { tingkat: ["8A", "8B"], mapel: "Bahasa Indonesia", link: "https://forms.gle/YaPELxt9tMnsJM7v7", tgl: "2026-06-03", durasi: 120, token: "AYEKAPTEN!" },
+    { tingkat: ["8C"], mapel: "Bahasa Indonesia", link: "https://forms.gle/DYZBhzh6aLmgohYdA", tgl: "2026-06-03", durasi: 120, token: "SEMANGAT8C" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Pendidikan Pancasila", link: "https://forms.gle/6uro2TGaogn5BF3P8", tgl: "2026-06-03", durasi: 90, token: "SAYASISWABERKARAKTER " },
     { tingkat: ["8A", "8B", "8C"], mapel: "Bahasa Inggris", link: "https://forms.gle/JTHZsYMbuz2Kk9Ne9", tgl: "2026-06-03", durasi: 120, token: "SAVEOURWORLD!" },
     { tingkat: ["8A", "8B", "8C"], mapel: "SBDP", link: "https://bit.ly/Senbud8_PSAT26", tgl: "2026-06-04", durasi: 90, token: "PASTINAIKKELAS" },
