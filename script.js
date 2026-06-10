@@ -24,8 +24,8 @@ const databaseUjian = [
     { tingkat: ["7A", "7B", "7C"], mapel: "IPA", link: "https://forms.gle/3ZiAZa9jC3EXYKEj6", tgl: "2026-06-09", durasi: 120, token: "BISMILLAHIPALULUS" },
     { tingkat: ["7A", "7B", "7C"], mapel: "Informatika", link: "https://bit.ly/PSAT_Informatika726", tgl: "2026-06-09", durasi: 90, token: "PERSIBBANDUNG" },
     { tingkat: ["7A", "7B", "7C"], mapel: "IPS", link: "https://forms.gle/9BUjkMmXfHNwFMuS9", tgl: "2026-06-08", durasi: 90, token: "LITERASIKEUANGAN" },
-    { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Sunda", link: "https://forms.gle/NKfxpkok1yYKQd1NA", tgl: "2026-06-09", durasi: 90, token: "SUNDAGAMPANG26" },
-    { tingkat: ["7A", "7B", "7C"], mapel: "PJOK", link: "https://forms.gle/gxZg21mxoanjVNGHA", tgl: "2026-06-09", durasi: 90, token: "HIDUPSEHAT" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "Bahasa Sunda", link: "https://forms.gle/NKfxpkok1yYKQd1NA", tgl: "2026-06-10", durasi: 90, token: "SUNDAGAMPANG26" },
+    { tingkat: ["7A", "7B", "7C"], mapel: "PJOK", link: "https://forms.gle/gxZg21mxoanjVNGHA", tgl: "2026-06-10", durasi: 90, token: "HIDUPSEHAT" },
 
     // KELAS 8
     { tingkat: ["8A", "8B", "8C"], mapel: "PAI-BP", link: "https://forms.gle/mTqueURApFrS3YSBA", tgl: "2026-06-03", durasi: 90, token: "SAYAANAKJUJUR" },
@@ -40,8 +40,8 @@ const databaseUjian = [
     { tingkat: ["8A"], mapel: "IPA", link: "https://forms.gle/FtDi4K2EmWAk2Pg49", tgl: "2026-06-09", durasi: 120, token: "BISMILLAHIPALULUS" },
     { tingkat: ["8A", "8B", "8C"], mapel: "Informatika", link: "https://forms.gle/rV12cSqWj7p4fDjC8", tgl: "2026-06-09", durasi: 90, token: "PSAT-8" },
     { tingkat: ["8A", "8B", "8C"], mapel: "IPS", link: "https://forms.gle/3aTxJspuZFTXDM34A", tgl: "2026-06-08", durasi: 90, token: "PEREKONOMIANINDONESIA" },
-    { tingkat: ["8A", "8B", "8C"], mapel: "Bahasa Sunda", link: "https://forms.gle/qSU8YhPewaEpm8LQ7", tgl: "2026-06-09", durasi: 90, token: "BISABASASUNDA26" },
-    { tingkat: ["8A", "8B", "8C"], mapel: "PJOK", link: "https://forms.gle/yyAFwFufCjuVEipq7", tgl: "2026-06-09", durasi: 90, token: "BUTUHSEHAT" },
+    { tingkat: ["8A", "8B", "8C"], mapel: "Bahasa Sunda", link: "https://forms.gle/qSU8YhPewaEpm8LQ7", tgl: "2026-06-10", durasi: 90, token: "BISABASASUNDA26" },
+    { tingkat: ["8A", "8B", "8C"], mapel: "PJOK", link: "https://forms.gle/yyAFwFufCjuVEipq7", tgl: "2026-06-10", durasi: 90, token: "BUTUHSEHAT" },
 
     // KELAS 9
     { tingkat: ["9A", "9B", "9C"], mapel: "PABP", link: "https://bit.ly/PSAJPAIBP2526", tgl: "2026-05-07", durasi: 90, token: "ALLAHBANTUSAYALULUS" },
